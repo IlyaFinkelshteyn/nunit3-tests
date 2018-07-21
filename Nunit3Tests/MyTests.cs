@@ -42,5 +42,5 @@ namespace Nunit2Tests
         }       
     }
     
-     [TestFixture] public class MyTests2 {[Test] public void TEST4(string a = "a") {}}
+     [TestFixture] public class MyTests2 {[Test] public void TEST4() {}}
 }
