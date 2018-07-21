@@ -15,68 +15,30 @@ namespace Nunit2Tests
     {
         [Test]
         [Category("A")]
-        public void Test_should_access_config()
+        public void TEST1()
         {
-            // appSettings
-            var someValue = ConfigurationManager.AppSettings["SomeValue"];
-            Assert.AreEqual("Hello, config!", someValue);
+            Assert.AreEqual("a", "a");
+        }
 
-            // connectionStrings
-            var connString = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
-            Assert.AreEqual("Server=(local);user=John", connString);
+        [Test]
+        [Category("A")]
+        public void TEST2()
+        {
+            Assert.AreEqual("a", "a");
         }
 
         [Test]
         [Category("B")]
-        public void Test_NET45()
+        public void TEST3()
         {
-            Console.WriteLine("This is Test_NET45!");
-            // Class "ReflectionContext" exists from .NET 4.5 onwards.
-            Assert.IsNotNull(Type.GetType("System.Reflection.ReflectionContext", false), "Class \"ReflectionContext\" exists from .NET 4.5 onwards.");
-        }
-
-        [Test]
-        [Category("B")]
-        public void Test_Uri()
-        {
-            //Thread.Sleep(60000);
-            string expected = "https://data.test.com:81/api/project/?%24skiptoken=1000&%24top=200";
-            Uri uri = new Uri("https://data.test.com:81/api/project/?%24skiptoken=1000&%24top=200");
-            Assert.AreEqual(uri.ToString(), expected);
-        }
-
-        [Test]
-        public void PathsWithDotsMustBeParsedWell()
-        {
-            const string urlWithDots = "http://host.com/path./";
-            Assert.AreEqual(urlWithDots, new Uri(urlWithDots).ToString());
+            Assert.AreEqual("a", "a");
         }
         
         [Test]
-        [Category("A")]
-        public void LongRunningTest_Cat_A()
+        [Category("B")]
+        public void TEST4()
         {
-            Assert.IsTrue(true); 
-            Thread.Sleep(10 * 60 * 1000); 
-            Assert.IsTrue(true);
+            Assert.AreEqual("a", "a");
         }        
-
-        [Test]
-        public void FailingTestA()
-        {
-            Trace.TraceWarning("Hello, trace!");
-            Console.Error.WriteLine("Hello, error!!");
-            const string urlWithDots = "http://host.com/path./";
-            Assert.AreEqual(urlWithDots, "A");
-        }
-
-        [Test]
-        public void ErroringTestA()
-        {
-            Console.WriteLine("Hello, world!");
-            const string urlWithDots = "http://host.com/path./";
-
-            throw new Exception("This is an error!");
-        }
     }
 }
