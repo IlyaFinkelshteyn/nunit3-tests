@@ -14,8 +14,8 @@ namespace Nunit2Tests
     public class MyTests
     {
         [Test]
-        [Category("A")]
-        //public void TEST1()
+        //[Category("A")]
+        public void TEST1()
         {
             Assert.AreEqual("a", "a");
         }
