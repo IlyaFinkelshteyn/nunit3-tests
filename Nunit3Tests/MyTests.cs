@@ -39,8 +39,12 @@ namespace Nunit2Tests
         public void TEST4()
         {
             Assert.AreEqual("a", "a");
-        }
-        
+        }       
+    }
+    
+     [TestFixture]
+    public class MyTests2
+    {
         [Test]
         //[Category("B")]
         public void TEST4(string a = "a")
