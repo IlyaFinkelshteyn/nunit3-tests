@@ -10,13 +10,13 @@ namespace NunitTestsX86
     [TestFixture]
     public class Class1
     {
-        [Test]
-        [Category("A")]
-        public void TestA()
-        {
+        //[Test]
+        //[Category("A")]
+        //public void TestA()
+        //{
             // appSettings
-            var someValue = "Hello, config!";
-            Assert.AreEqual("Hello, config!", someValue);
-        }
+        //    var someValue = "Hello, config!";
+        //    Assert.AreEqual("Hello, config!", someValue);
+        //}
     }
 }
