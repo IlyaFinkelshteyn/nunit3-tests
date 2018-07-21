@@ -15,27 +15,27 @@ namespace Nunit2Tests
     {
         [Test]
         [Category("A")]
-        public void TEST1()
+        //public void TEST1()
         {
             Assert.AreEqual("a", "a");
         }
 
         [Test]
-        [Category("A")]
+        //[Category("A")]
         public void TEST2()
         {
             Assert.AreEqual("a", "a");
         }
 
         [Test]
-        [Category("B")]
+        //[Category("B")]
         public void TEST3()
         {
             Assert.AreEqual("a", "a");
         }
         
         [Test]
-        [Category("B")]
+        //[Category("B")]
         public void TEST4()
         {
             Assert.AreEqual("a", "a");
