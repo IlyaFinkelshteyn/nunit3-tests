@@ -3,6 +3,14 @@
 #only_commits:
 #  message: /build/
 
+before_build:
+  - where nunit3-console  
+  - cmd: nuget install NUnit.Console -Version 3.8.0 -OutputDirectory C:\Tools\NUnit
+  - where nunit3-console
+  
+  
+  
+
 build:
   verbosity: minimal
 
