@@ -1,15 +1,24 @@
-#os: Visual Studio 2013 - GCE
-
-#only_commits:
-#  message: /build/
+install:
+- ps: |
+    Write-Host "Installing NUnit 3.8.0..." -ForegroundColor Cyan -NoNewline
+    $toolsPath = "$env:SYSTEMDRIVE\Tools"
+    $nunitPath = "$env:SYSTEMDRIVE\Tools\NUnit3"
+    Remove-Item $nunitPath -Recurse -Force
+    $zipPath = "$($env:TEMP)\NUnit.Console-3.8.0.zip"
+    (New-Object Net.WebClient).DownloadFile('https://github.com/nunit/nunit-console/releases/download/3.8/NUnit.Console-3.8.0.zip', $zipPath)
+    7z x $zipPath -y -o"$nunitPath" | Out-Null
+    del $zipPath
+    $zipPath = "$($env:TEMP)\Appveyor.NUnit3Logger.zip"
+    (New-Object Net.WebClient).DownloadFile('https://www.appveyor.com/downloads/Appveyor.NUnit3Logger.zip', $zipPath)
+    7z x $zipPath -y -o"$nunitPath\addins" | Out-Null
+    Move-Item "$nunitPath\addins\appveyor.addins" "$nunitPath\appveyor.addins"
+    del $zipPath
+    Remove-Path "$nunitPath\bin"
+    Add-Path "$nunitPath"
+    Write-Host "NUnit 3.8.0 installed" -ForegroundColor Green
 
 before_build:
-  - where nunit3-console  
-  - dir /s C:\Tools\NUnit3
-  - cmd: nuget install NUnit.Console -Version 3.8.0 -OutputDirectory C:\Tools\NUnit3
-  - where nunit3-console
   - nuget restore
-  - dir /s C:\Tools\NUnit3
 
 build:
   verbosity: minimal
