@@ -5,11 +5,11 @@
 
 before_build:
   - where nunit3-console  
-  - dir /s C:\Tools\NUnit
-  - cmd: nuget install NUnit.Console -Version 3.8.0 -OutputDirectory C:\Tools\NUnit
+  - dir /s C:\Tools\NUnit3
+  - cmd: nuget install NUnit.Console -Version 3.8.0 -OutputDirectory C:\Tools\NUnit3
   - where nunit3-console
   - nuget restore
-  - dir /s C:\Tools\NUnit
+  - dir /s C:\Tools\NUnit3
 
 build:
   verbosity: minimal
